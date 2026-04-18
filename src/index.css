@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Lato", sans-serif;
+
+  --color-surface: #fff8f7;
+  --color-primary: #6c043b;
+  --color-secondary: #c8a96e;
+  --color-on-surface: #291717;
+  --color-surface-container: #ffe9e8;
+  --color-surface-container-low: #fff0ef;
+  --color-surface-container-high: #ffe1e0;
+
+  /* shadcn variables mapping */
+  --color-background: var(--surface);
+  --color-foreground: var(--on-surface);
+  --color-card: #ffffff;
+  --color-card-foreground: var(--on-surface);
+  --color-popover: #ffffff;
+  --color-popover-foreground: var(--on-surface);
+  --color-primary-foreground: #ffffff;
+  --color-secondary-foreground: #ffffff;
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #737373;
+  --color-accent: var(--surface-container);
+  --color-accent-foreground: var(--primary);
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #e5e5e5;
+  --color-input: #e5e5e5;
+  --color-ring: var(--secondary);
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  /* Custom Luxury Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #c8a96e;
+    border: 2px solid #0a0a0a;
+    border-radius: 20px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6c043b;
+  }
+
+  /* Firefox Support */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #c8a96e #0a0a0a;
+  }
+}
+
+.ambient-glow-rose {
+  box-shadow: 0 20px 40px -10px rgba(139, 34, 82, 0.15);
+}
+
+.ambient-glow-gold {
+  box-shadow: 0 40px 60px -10px rgba(200, 169, 110, 0.1);
+}
+
+.no-scrollbar, .scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar, .scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
