@@ -34,13 +34,7 @@ const duplicatedReviews = [...reviews, ...reviews];
 export default function Testimonials() {
   return (
     <section className="pt-[38px] md:pt-[70px] pb-[19px] md:pb-[51px] relative overflow-hidden">
-      {/* SVG Filters */}
-      <svg width="0" height="0" className="absolute pointer-events-none">
-        <filter id="testimonial-torn-edge">
-          <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
-        </filter>
-      </svg>
+
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -79,7 +73,7 @@ export default function Testimonials() {
           <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#fbf9f4]/40 to-transparent z-20 pointer-events-none"></div>
 
           <motion.div
-            className="flex gap-6 md:gap-10 px-4"
+            className="flex gap-6 md:gap-10 px-4 transform-gpu will-change-transform"
             animate={{
               x: [0, "-50%"],
             }}
@@ -96,14 +90,13 @@ export default function Testimonials() {
                 className="w-[300px] md:w-[380px] flex-shrink-0 py-4"
               >
                 {/* Physical Gold Frame */}
-                <div className="relative h-full p-[8px] bg-gradient-to-br from-[#e8cf9f] via-[#cdae77] to-[#8a6732] shadow-[0_15px_30px_rgba(0,0,0,0.15)] rounded-[1px] flex flex-col group">
+                <div className="relative h-full p-[8px] bg-gradient-to-br from-[#e8cf9f] via-[#cdae77] to-[#8a6732] shadow-[0_15px_30px_rgba(0,0,0,0.15)] rounded-[2px] flex flex-col group">
                   {/* Inner frame reflection line */}
                   <div className="absolute inset-0 border border-white/40 m-[2px] pointer-events-none"></div>
                   
-                  {/* The Deckled Paper */}
+                  {/* The Deckled Paper - Optimized with CSS rounding and shadow instead of SVG filter */}
                   <div 
-                    className="relative h-full bg-[#fbf9f4] p-6 md:p-8 flex flex-col items-start text-left shadow-[inset_0_0_20px_rgba(0,0,0,0.02)]" 
-                    style={{ filter: 'url(#testimonial-torn-edge)' }}
+                    className="relative h-full bg-[#fbf9f4] p-6 md:p-8 flex flex-col items-start text-left shadow-[inset_0_0_20px_rgba(0,0,0,0.02)] rounded-[1px]" 
                   >
                     {/* Top Row: Stars and Quote */}
                     <div className="flex justify-between items-start w-full mb-4 md:mb-6 relative z-10">
