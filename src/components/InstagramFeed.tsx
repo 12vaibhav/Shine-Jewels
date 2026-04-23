@@ -18,8 +18,10 @@ export default function InstagramFeed() {
         <img 
           src="/Section Background/Category.webp" 
           alt="Instagram Feed Background" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-85 saturate-[0.8] contrast-[1.05] brightness-[0.95]"
         />
+        {/* Unified Luxury Overlay */}
+        <div className="absolute inset-0 bg-secondary/5 mix-blend-overlay"></div>
       </div>
 
       <div className="absolute top-1/2 -left-12 -translate-y-1/2 vertical-text text-[10px] tracking-[1em] text-secondary/30 font-bold uppercase hidden lg:block">

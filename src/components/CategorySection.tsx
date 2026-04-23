@@ -35,8 +35,10 @@ export default function CategorySection() {
         <img 
           src="/Section Background/Category.webp" 
           alt="Category Background" 
-          className="w-full h-full object-cover opacity-90"
+          className="w-full h-full object-cover opacity-85 saturate-[0.8] contrast-[1.05] brightness-[0.95]"
         />
+        {/* Unified Luxury Overlay */}
+        <div className="absolute inset-0 bg-secondary/5 mix-blend-overlay"></div>
         {/* Subtle radial glow to enhance the center */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.4)_0%,transparent_100%)]"></div>
         

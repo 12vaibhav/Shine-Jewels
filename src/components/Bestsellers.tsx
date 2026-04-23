@@ -80,8 +80,10 @@ export default function Bestsellers() {
         <img
           src="/Section Background/Our BestSellers.webp"
           alt="Our Bestsellers Background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-85 saturate-[0.8] contrast-[1.05] brightness-[0.95]"
         />
+        {/* Unified Luxury Overlay */}
+        <div className="absolute inset-0 bg-secondary/5 mix-blend-overlay"></div>
       </div>
 
       {/* Corner Flourishes */}

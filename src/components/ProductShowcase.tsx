@@ -40,8 +40,10 @@ export default function ProductShowcase() {
           <img 
             src="/Section Background/for Rings.webp" 
             alt="Section Background" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-85 saturate-[0.8] contrast-[1.05] brightness-[0.95]"
           />
+          {/* Unified Luxury Overlay */}
+          <div className="absolute inset-0 bg-secondary/5 mix-blend-overlay"></div>
         </div>
 
         <div className="max-w-[1300px] mx-auto relative z-10">
@@ -180,8 +182,10 @@ export default function ProductShowcase() {
           <img 
             src="/Section Background/for Rings.webp" 
             alt="Section Background" 
-            className="w-full h-full object-cover transform scale-x-[-1]"
+            className="w-full h-full object-cover transform scale-x-[-1] opacity-85 saturate-[0.8] contrast-[1.05] brightness-[0.95]"
           />
+          {/* Unified Luxury Overlay */}
+          <div className="absolute inset-0 bg-secondary/5 mix-blend-overlay"></div>
         </div>
 
         <div className="max-w-[1300px] mx-auto relative z-10">

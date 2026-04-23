@@ -59,8 +59,10 @@ export default function NewArrivals() {
         <img 
           src="/Section Background/New Arrivals.webp" 
           alt="New Arrivals Background" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-85 saturate-[0.8] contrast-[1.05] brightness-[0.95]"
         />
+        {/* Unified Luxury Overlay */}
+        <div className="absolute inset-0 bg-secondary/5 mix-blend-overlay"></div>
       </div>
 
       <div className="w-full max-w-[1400px] mx-auto relative z-10">
