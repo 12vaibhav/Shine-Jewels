@@ -12,17 +12,14 @@ const feed = [
 
 export default function InstagramFeed() {
   return (
-    <section className="py-8 md:py-20 px-4 md:px-6 bg-white relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-[0.015] pointer-events-none select-none">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid-insta" width="50" height="50" patternUnits="userSpaceOnUse">
-              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid-insta)" />
-        </svg>
+    <section className="py-8 md:py-24 px-4 md:px-6 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/Section Background/Category.webp" 
+          alt="Instagram Feed Background" 
+          className="w-full h-full object-cover"
+        />
       </div>
 
       <div className="absolute top-1/2 -left-12 -translate-y-1/2 vertical-text text-[10px] tracking-[1em] text-secondary/30 font-bold uppercase hidden lg:block">
@@ -42,7 +39,7 @@ export default function InstagramFeed() {
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-3xl md:text-6xl font-serif text-primary tracking-tighter leading-[0.9]"
+              className="text-3xl md:text-6xl font-serif text-primary tracking-tighter leading-[0.9] font-semibold"
             >
               Follow the <span className="italic text-secondary">Brand Journey</span>
             </motion.h2>

@@ -1,128 +1,210 @@
 import { motion } from "motion/react";
-import { Plus, Eye } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 
 const products = [
   {
-    name: "Luna Crescent Ring",
-    price: "$850",
-    material: "18K Rose Gold",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBlPEqU2EWKv2xmdkuVuBxMutq9IYnjVUOnB38BzIygIhoPRlmsGzQpcIi1kgAvnX2NH1Y11KnqvKX2qlogsRvqnJ4P72nRs3wi4MjbTcHhlYc0FrX0xDuUpy8eOISHUguKatffGMiQKM6He-WcMwOB9a7k1qsy0LvZzQd3M5ushn2EXPs8TsL8hI0HR6Wypd3C2q4ut_QBLcYTxSBs8Fr7nDy-q5f2RkONP9jC2q9ntUrpfP_6eZobn703oNfJ9tCTcwmNHOIBfOM",
+    name: "Esha Pink Bangles",
+    price: "₹2,850",
+    image: "/Product Images/New Arrivals/Esha Pink Bangles.webp",
+    material: "18K Gold Plated",
+    reviews: 48,
   },
   {
-    name: "Aether Drop Earrings",
-    price: "$420",
+    name: "Ethnic Fringe Earrings",
+    price: "₹1,420",
+    image: "/Product Images/New Arrivals/Ethnic Fringe Elephant Dangle Earrings.webp",
     material: "Sterling Silver",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDK18fprg7ajvGeuCu89c9QoVXCbdkyMQkW99XxvuwiUR5_sDFXkFZizp0doMNozl1H35SVx9s9iJkABwoSN9yap1a4y_8p3xZqJoAU8Cg3pq0TZn2P2VW-goSVT3HDXBGSlYQ8-zIpaTcLtthVFYBd9OItw5sWzslb3Fsg2M21NSbCuqss8fdQ8mncnL7FymXWdXVb7PC28YNBYMHtQuWhTa_x7bsBPEXyfvyEYSrpvQIoU9RXUYlBpvS-5Pkoe284RrRLINU2OLM",
+    reviews: 35,
   },
   {
-    name: "Solstice Pendant",
-    price: "$1,200",
-    material: "Yellow Gold",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCRY-bWHpLIm8-0rMvqnE4Wf7HpQRsmbmdh-M_Q8edRldm_2qCNTP6D92SJe8hVu8X4fP5cP1pckUXPaKmIClW3LqwxFz-Vwcyh4K1w7q6cJH_NIlTjNYE_5Yu26-6AAfh3McV0SQ81GrrZymazc5zznu60IeBDyyB2QFI7sQwr-WUUw028eu5WEMvj6LPYo3F1u739SHrHq5Y3fFfkrk9x91_-LnJq-ieXekIbp4l3UZAATw60GlEaWztAFIP1OY-KimMnM8mjiic",
+    name: "Jogi Green Payal",
+    price: "₹1,250",
+    image: "/Product Images/New Arrivals/Jogi Green Payal Anklets.webp",
+    material: "Kemp Stones",
+    reviews: 52,
   },
   {
-    name: "Shine Collections Cuff",
-    price: "$2,450",
-    material: "Platinum",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDiY242QnN9XzQPwm9KfKKmnms73mNCIdfnPMH4F315Z-lnvQufZQgITNu_UzAXjk45q7Vt807Vcw6orWmFF3RRUBuLGNvh5raft4nNSLc-jkOe-fNTWd71AZeWjsfS2zW9BRsnK_41JSmNgmAvp2ugjfyJ_ZACN2qlHSGCX7HC64TRaCJBTzS9x5p8yJ42cJgF5G8XkGagJQJzmP1KXjM1ZwfJFimOre8bcL3uI4rnfVHWd5Pfk2jFfhzrPlQfcjX2dbYJLhAhwIU",
+    name: "Polki Kundan Set",
+    price: "₹9,800",
+    image: "/Product Images/New Arrivals/Pearl Rose Enamel Polki Kundan Necklace Set.webp",
+    material: "Pearl & Enamel",
+    reviews: 42,
+  },
+  {
+    name: "Scorpio Mangalsutra",
+    price: "₹3,650",
+    image: "/Product Images/New Arrivals/Scorpio Mangalsutra.webp",
+    material: "18K Gold",
+    reviews: 29,
   },
 ];
 
 export default function NewArrivals() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollTo = direction === "left" ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="py-8 md:py-16 bg-surface-container-low px-4 md:px-6 relative overflow-hidden">
-      {/* Decorative Background Accent */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-secondary/5 to-transparent pointer-events-none"></div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-6 md:mb-12 gap-4 md:gap-6">
-          <div className="text-center md:text-left">
-            <motion.span 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="font-sans uppercase text-[7px] md:text-[10px] tracking-[0.4em] text-secondary mb-2 md:mb-3 block"
+    <section className="pt-[13px] pb-0 md:pt-[61px] md:pb-[26px] px-4 md:px-8 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/Section Background/New Arrivals.webp" 
+          alt="New Arrivals Background" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      <div className="w-full max-w-[1400px] mx-auto relative z-10">
+        
+        {/* Header Section */}
+        <div className="relative mb-12 flex flex-col items-center w-full">
+          {/* Main Title Area (Centered) */}
+          <div className="text-center flex flex-col items-center">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="font-sans uppercase text-[10px] md:text-xs tracking-[0.3em] text-[#4a1525] font-semibold mb-2 block"
             >
               The Spring Collection
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-serif text-primary italic">New Arrivals</h2>
+            <h2 className="text-4xl md:text-6xl font-serif text-[#333021] italic tracking-tight mb-6 font-semibold">
+              New Arrivals
+            </h2>
           </div>
-          <motion.a 
-            whileHover={{ x: 5 }}
-            href="#" 
-            className="text-primary font-sans text-[7px] md:text-[10px] tracking-[0.3em] uppercase border-b border-secondary/30 pb-1.5 hover:border-secondary transition-all flex items-center gap-2 md:gap-3"
+
+          {/* Explore All Link (Absolute Right on Desktop, hidden on mobile) */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="hidden md:flex md:absolute md:right-0 md:bottom-8"
           >
-            Explore All
-            <div className="w-6 md:w-8 h-[1px] bg-secondary/50"></div>
-          </motion.a>
+            <Link
+              to="/new-arrivals"
+              className="text-[#333021] font-sans text-xs tracking-[0.2em] uppercase flex items-center gap-2 hover:opacity-70 transition-opacity border-b border-[#333021]/30 pb-1"
+            >
+              Explore All <span className="text-lg leading-none">&rarr;</span>
+            </Link>
+          </motion.div>
+
+          {/* Decorative Divider */}
+          <div className="w-full max-w-4xl flex items-center gap-3 mt-4 opacity-80">
+            <div className="w-1.5 h-1.5 rotate-45 bg-[#c8a96e]"></div>
+            <div className="h-[1px] flex-1 bg-[#c8a96e]"></div>
+            
+            {/* Center Floral SVG */}
+            <div className="px-2 text-[#c8a96e]">
+              <svg width="120" height="30" viewBox="0 0 120 30" className="fill-current">
+                <path d="M60,15 C50,0 40,10 30,5 C40,20 50,25 60,15 Z M60,15 C70,0 80,10 90,5 C80,20 70,25 60,15 Z" opacity="0.7"/>
+                <circle cx="60" cy="15" r="3" />
+                <path d="M60,18 C55,25 45,20 40,28 C45,28 55,30 60,25 Z M60,18 C65,25 75,20 80,28 C75,28 65,30 60,25 Z" opacity="0.5"/>
+                <path d="M25,10 C15,5 5,15 0,10 C10,20 20,20 25,10 Z M95,10 C105,5 115,15 120,10 C110,20 100,20 95,10 Z" opacity="0.4"/>
+              </svg>
+            </div>
+
+            <div className="h-[1px] flex-1 bg-[#c8a96e]"></div>
+            <div className="w-1.5 h-1.5 rotate-45 bg-[#c8a96e]"></div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
-              className="group"
-            >
-              <div className="relative bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-700 md:group-hover:-translate-y-3 border border-secondary/5">
-                {/* Image Container */}
-                <Link to="/product/floral-diamond-ring" className="relative aspect-[4/5] overflow-hidden bg-surface-container-low/30 block">
-                  <motion.img
-                    src={product.image}
-                    alt={product.name}
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:opacity-100"
-                    referrerPolicy="no-referrer"
-                  />
+        {/* Carousel Section */}
+        <div className="relative group/scroll md:px-0">
+          {/* Chevron Buttons */}
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-8 z-30 w-12 h-12 rounded-full bg-[#f4efe8]/90 backdrop-blur-md border border-[#c8a96e]/30 flex items-center justify-center text-[#333021] hover:bg-[#c8a96e] hover:text-white transition-all shadow-lg opacity-0 group-hover/scroll:opacity-100 hidden md:flex"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-8 z-30 w-12 h-12 rounded-full bg-[#f4efe8]/90 backdrop-blur-md border border-[#c8a96e]/30 flex items-center justify-center text-[#333021] hover:bg-[#c8a96e] hover:text-white transition-all shadow-lg opacity-0 group-hover/scroll:opacity-100 hidden md:flex"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div
+            ref={scrollRef}
+            className="flex gap-4 md:gap-6 overflow-x-auto overflow-y-hidden scrollbar-hide snap-x scroll-px-4 scroll-smooth pb-12 pt-4 -mx-4 px-4 md:mx-0 md:px-0"
+          >
+            {products.map((product, index) => (
+              <motion.div
+                key={product.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1, duration: 0.8 }}
+                className="group min-w-[calc(50%-12px)] w-[calc(50%-12px)] md:min-w-[0] md:w-[calc(25%-18px)] snap-start shrink-0 flex flex-col"
+              >
+                <div className="bg-[#f8f5f0] rounded-2xl overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-shadow duration-500 border border-black/5 flex flex-col h-full">
                   
-                  {/* Hover Actions Overlay (Hidden on Mobile) */}
-                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex items-center justify-center gap-3">
-                    <button className="w-11 h-11 rounded-full bg-white text-primary flex items-center justify-center shadow-lg hover:bg-primary hover:text-white transition-colors">
-                      <Plus className="w-5 h-5" />
-                    </button>
-                    <button className="w-11 h-11 rounded-full bg-white text-primary flex items-center justify-center shadow-lg hover:bg-primary hover:text-white transition-colors">
-                      <Eye className="w-5 h-5" />
-                    </button>
-                  </div>
+                  {/* Image Container */}
+                  <Link to={`/product/${product.name.replace(/\s+/g, '-').toLowerCase()}`} className="relative w-full aspect-[4/4.5] overflow-hidden block shrink-0">
+                    <motion.img
+                      src={product.image}
+                      alt={product.name}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 1.2, ease: "easeOut" }}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
 
-                  {/* Mobile Quick Add (Visible on Mobile) */}
-                  <div className="absolute bottom-2 right-2 md:hidden">
-                    <button className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm text-primary flex items-center justify-center shadow-md border border-secondary/20 active:scale-90 transition-transform">
-                      <Plus className="w-4 h-4" />
-                    </button>
-                  </div>
-
-                  <span className="absolute top-3 left-3 md:top-5 md:left-5 bg-white/90 backdrop-blur-sm text-primary px-3 md:px-4 py-1.5 text-[7px] md:text-[9px] tracking-[0.2em] uppercase font-bold border border-secondary/20 shadow-sm z-10">
-                    New In
-                  </span>
-                </Link>
-
-                {/* Content Area */}
-                <div className="p-3 md:p-4 text-center">
-                  <span className="text-[7px] md:text-[8px] font-sans uppercase tracking-[0.3em] text-secondary/70 mb-1.5 md:mb-2 block">
-                    {product.material}
-                  </span>
-                  <Link to="/product/floral-diamond-ring">
-                    <h3 className="font-serif text-sm md:text-base text-on-surface mb-1 md:mb-2 group-hover:text-primary transition-colors duration-300 leading-tight">
-                      {product.name}
-                    </h3>
+                    {/* NEW IN Badge */}
+                    <div className="absolute top-4 left-4 bg-[#f8f5f0] px-3 py-1.5 shadow-sm flex items-center justify-center z-10">
+                      <div className="absolute inset-[3px] border-[0.5px] border-[#c8a96e]/60"></div>
+                      <span className="text-[9px] md:text-[10px] tracking-[0.15em] uppercase font-sans font-semibold text-[#333021] relative z-10">
+                        New In
+                      </span>
+                    </div>
                   </Link>
-                  <div className="flex flex-col items-center gap-2">
-                    <span className="text-primary font-sans text-[10px] md:text-xs tracking-widest font-medium">
+
+                  {/* Content Area */}
+                  <div className="p-3.5 md:p-6 text-center flex flex-col items-center justify-center flex-1 bg-[#f8f5f0]">
+                    <span className="text-[8px] md:text-[9px] font-sans uppercase tracking-[0.2em] text-[#c8a96e] font-semibold mb-1.5 md:mb-2 block">
+                      {product.material}
+                    </span>
+                    <Link to={`/product/${product.name.replace(/\s+/g, '-').toLowerCase()}`}>
+                      <h3 className="font-serif text-[14px] md:text-[17px] text-[#333021] mb-1.5 md:mb-2 hover:opacity-70 transition-opacity leading-snug">
+                        {product.name}
+                      </h3>
+                    </Link>
+                    <span className="text-[#4a1525] font-sans text-[11px] md:text-[15px] tracking-wide mt-auto font-medium">
                       {product.price}
                     </span>
-                    <div className="hidden md:block w-8 h-[1px] bg-secondary/20 group-hover:w-16 transition-all duration-500"></div>
                   </div>
+
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
+ 
+          {/* Mobile Explore All Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex md:hidden justify-center mt-2 pb-4"
+          >
+            <Link
+              to="/new-arrivals"
+              className="text-[#333021] font-sans text-[11px] tracking-[0.25em] uppercase flex items-center gap-2 hover:opacity-70 transition-opacity border border-[#333021]/20 px-8 py-3 rounded-full bg-white shadow-sm"
+            >
+              Explore All <span className="text-lg leading-none">&rarr;</span>
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
+
+

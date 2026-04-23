@@ -1,137 +1,186 @@
-import { useState } from "react";
 import { motion } from "motion/react";
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 
 const reviews = [
   {
+    initials: "DH",
+    name: "David H.",
+    role: "GROOM",
+    text: "Customizing my wife's band was an amazing experience. They really listened to what I wanted and created something beyond my expectations.",
+  },
+  {
+    initials: "OW",
+    name: "Olivia W.",
+    role: "DAILY WEAR",
+    text: "I never take off my gold stacking rings. They've kept their shine perfectly even with daily wear. Truly premium quality.",
+  },
+  {
     initials: "EM",
     name: "Eleanor M.",
-    role: "Bride",
+    role: "BRIDE",
     text: "The Luna Crescent ring was my something blue for the wedding. It's even more breathtaking in person. The craftsmanship is divine.",
   },
   {
     initials: "ST",
     name: "Sarah T.",
-    role: "Collector",
-    text: "I wear my Papillon drops every day. They are light as air and catch the morning light so beautifully. Exceptional quality.",
-  },
-  {
-    initials: "JW",
-    name: "Julianne W.",
-    role: "Bespoke Client",
-    text: "From the bespoke consultation to the unboxing, Shine Jewels made me feel like royalty. My engagement ring is a dream come true.",
+    role: "COLLECTOR",
+    text: "I wear my Papillon drops every day. They catch the air and catch the morning light so beautifully. Exceptional quality.",
   },
 ];
 
+// Double the reviews for a seamless loop
+const duplicatedReviews = [...reviews, ...reviews];
+
 export default function Testimonials() {
-  const [showAllMobile, setShowAllMobile] = useState(false);
-
   return (
-    <section className="pt-4 md:pt-8 pb-12 md:pb-24 px-4 md:px-6 bg-[#fdfaf8] relative overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none select-none">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
-              <circle cx="20" cy="20" r="1" fill="currentColor" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#dots)" />
-        </svg>
+    <section className="pt-[38px] md:pt-[70px] pb-[19px] md:pb-[51px] relative overflow-hidden">
+      {/* SVG Filters */}
+      <svg width="0" height="0" className="absolute pointer-events-none">
+        <filter id="testimonial-torn-edge">
+          <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </svg>
+
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/Section Background/Testimonial.webp" 
+          alt="Testimonials Background" 
+          className="w-full h-full object-cover"
+        />
       </div>
 
-      <div className="absolute top-20 -right-10 vertical-text text-[10px] tracking-[0.8em] text-secondary/30 font-bold uppercase hidden lg:block">
-        Voices of the Collection
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-6 md:mb-12">
+      <div className="max-w-[100vw] relative z-10">
+        <div className="text-center mb-4 md:mb-11 px-4">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-[8px] md:text-[10px] font-sans uppercase tracking-[0.6em] text-secondary mb-2 block font-bold"
+            className="text-[9px] md:text-[11px] font-sans uppercase tracking-[0.4em] text-[#3a1f26] mb-4 block font-bold"
           >
-            Testimonials
+            TESTIMONIALS
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-2xl sm:text-3xl md:text-5xl font-serif text-primary italic leading-tight"
+            className="text-3xl sm:text-4xl md:text-[46px] font-serif leading-tight font-semibold"
           >
-            Words from Our <span className="text-secondary not-italic block md:inline">Brides & Collectors</span>
+            <span className="text-[#3a1f26] italic mr-2 md:mr-3">Words from Our</span>
+            <span className="text-[#cdae77] not-italic">Brides & Collectors</span>
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8">
-          {reviews.map((review, index) => (
-            <motion.div
-              key={review.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.8 }}
-              className={`relative group ${!showAllMobile && index >= 2 ? 'hidden md:block' : ''}`}
-            >
-              {/* Card Decoration */}
-              <div className="absolute -top-3 -left-3 md:-top-4 md:-left-4 w-10 h-10 md:w-12 md:h-12 bg-secondary/5 rounded-full blur-xl group-hover:bg-secondary/10 transition-colors"></div>
-              
-              <div className="bg-white p-5 md:p-8 rounded-2xl md:rounded-[2rem] border border-secondary/5 shadow-sm hover:shadow-[0_20px_40px_rgba(108,4,59,0.05)] transition-all duration-700 relative z-10 flex flex-col h-full">
-                <Quote className="w-6 h-6 md:w-8 md:h-8 text-secondary/10 absolute top-4 right-4 md:top-6 md:right-6 rotate-180" />
-                
-                <div className="flex text-secondary mb-3 md:mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-2.5 h-2.5 md:w-3 md:h-3 fill-current" />
-                  ))}
-                </div>
+        {/* Horizontal Looping Container */}
+        <div className="relative w-full">
+          {/* Gradient Overlays for smooth edges */}
+          <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#fbf9f4]/40 to-transparent z-20 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#fbf9f4]/40 to-transparent z-20 pointer-events-none"></div>
 
-                <p className="font-serif italic text-sm sm:text-base md:text-xl text-primary leading-relaxed mb-4 md:mb-6 flex-grow">
-                  "{review.text}"
-                </p>
+          <motion.div
+            className="flex gap-6 md:gap-10 px-4"
+            animate={{
+              x: [0, "-50%"],
+            }}
+            transition={{
+              duration: 50,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+            style={{ width: "fit-content" }}
+          >
+            {duplicatedReviews.map((review, index) => (
+              <div
+                key={`${review.name}-${index}`}
+                className="w-[300px] md:w-[380px] flex-shrink-0 py-4"
+              >
+                {/* Physical Gold Frame */}
+                <div className="relative h-full p-[8px] bg-gradient-to-br from-[#e8cf9f] via-[#cdae77] to-[#8a6732] shadow-[0_15px_30px_rgba(0,0,0,0.15)] rounded-[1px] flex flex-col group">
+                  {/* Inner frame reflection line */}
+                  <div className="absolute inset-0 border border-white/40 m-[2px] pointer-events-none"></div>
+                  
+                  {/* The Deckled Paper */}
+                  <div 
+                    className="relative h-full bg-[#fbf9f4] p-6 md:p-8 flex flex-col items-start text-left shadow-[inset_0_0_20px_rgba(0,0,0,0.02)]" 
+                    style={{ filter: 'url(#testimonial-torn-edge)' }}
+                  >
+                    {/* Top Row: Stars and Quote */}
+                    <div className="flex justify-between items-start w-full mb-4 md:mb-6 relative z-10">
+                      {/* Stars */}
+                      <div className="flex gap-1 pt-2">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-[14px] h-[14px] md:w-[16px] md:h-[16px] fill-[#cdae77] text-[#cdae77]" />
+                        ))}
+                      </div>
+                      {/* Serif Double Quote */}
+                      <div 
+                        className="font-serif text-[60px] md:text-[75px] text-[#d8e2df] leading-[0.6] mr-[-5px]" 
+                        style={{ WebkitTextStroke: '1.5px #b89454' }}
+                      >
+                        “
+                      </div>
+                    </div>
 
-                <div className="flex items-center gap-3 md:gap-4 border-t border-secondary/5 pt-4 md:pt-6">
-                  <div className="w-8 h-8 md:w-12 md:h-12 bg-[#fdfaf8] rounded-full flex items-center justify-center font-serif text-primary font-bold text-xs md:text-base border border-secondary/10 group-hover:border-secondary/30 transition-colors">
-                    {review.initials}
-                  </div>
-                  <div>
-                    <h4 className="font-serif text-xs md:text-base text-primary tracking-tight">{review.name}</h4>
-                    <span className="text-[6px] md:text-[8px] font-sans uppercase tracking-[0.2em] text-secondary font-bold">{review.role}</span>
+                    {/* Review Text */}
+                    <p className="font-serif italic text-[15px] md:text-[17px] text-[#3a1f26] leading-[1.6] mb-8 flex-grow relative z-10 pr-2">
+                      "{review.text}"
+                    </p>
+
+                    {/* Reviewer Info */}
+                    <div className="flex items-center gap-4 mt-auto relative z-10">
+                      <div className={`w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center font-serif text-[15px] md:text-[17px] border-[1.5px] border-[#b89454] shadow-[0_4px_10px_rgba(0,0,0,0.1)] ${index % 2 !== 0 ? 'bg-[#3a1f26] text-[#e8cf9f]' : 'bg-[#fbf9f4] text-[#3a1f26]'}`}>
+                        {review.initials}
+                      </div>
+                      <div className="flex flex-col">
+                        <h4 className="font-serif text-[15px] md:text-[17px] text-[#3a1f26] tracking-tight mb-0.5">{review.name}</h4>
+                        <span className="font-sans text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-[#b89454] font-medium">{review.role}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </motion.div>
         </div>
 
-        {!showAllMobile && reviews.length > 2 && (
-          <div className="mt-8 text-center md:hidden">
-            <button 
-              onClick={() => setShowAllMobile(true)}
-              className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-secondary border border-secondary/20 px-8 py-3 rounded-full hover:bg-secondary hover:text-white transition-all duration-500"
-            >
-              Load More Reviews
-            </button>
-          </div>
-        )}
-
         {/* Press Bar */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-8 md:mt-16 pt-6 md:pt-8 border-t border-secondary/10"
-        >
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 md:gap-16">
-            <div className="flex flex-col items-center gap-1 md:gap-2 group cursor-default">
-              <span className="font-serif text-sm sm:text-xl md:text-2xl text-primary/40 group-hover:text-primary transition-colors duration-500">Trustpilot</span>
-              <div className="flex text-secondary/40 group-hover:text-secondary transition-colors duration-500">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-1 h-1 md:w-2 md:h-2 fill-current" />)}
-              </div>
-            </div>
-            <span className="font-serif text-sm sm:text-xl md:text-2xl text-primary/40 hover:text-primary transition-colors duration-500 cursor-default tracking-tighter">VOGUE</span>
-            <span className="font-serif text-sm sm:text-xl md:text-2xl text-primary/40 hover:text-primary transition-colors duration-500 cursor-default tracking-tight">BRIDES</span>
-            <span className="font-serif text-sm sm:text-xl md:text-2xl text-primary/40 hover:text-primary transition-colors duration-500 cursor-default italic leading-none text-center">BAZAAR</span>
-          </div>
-        </motion.div>
+        <div className="max-w-[1400px] mx-auto px-4 mt-12 md:mt-20">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="overflow-hidden"
+          >
+            <motion.div 
+              className="flex items-center gap-12 md:gap-20"
+              animate={{
+                x: ["-50%", 0],
+              }}
+              transition={{
+                duration: 40,
+                ease: "linear",
+                repeat: Infinity,
+              }}
+              style={{ width: "fit-content" }}
+            >
+              {[
+                "MARIE CLAIRE", "VANITY FAIR", "COSMOPOLITAN", "VOGUE", "BRIDES", "BAZAAR",
+                "MARIE CLAIRE", "VANITY FAIR", "COSMOPOLITAN", "VOGUE", "BRIDES", "BAZAAR"
+              ].map((brand, i) => (
+                <span 
+                  key={i} 
+                  className={`font-serif font-bold text-xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-b from-[#a88444] to-[#5a3e1a] flex-shrink-0 ${
+                    brand === "COSMOPOLITAN" ? "font-sans font-black tracking-tighter transform scale-y-110" : ""
+                  } ${
+                    brand === "BAZAAR" || brand === "VANITY FAIR" ? "italic" : ""
+                  }`}
+                  style={{ filter: 'drop-shadow(0px 3px 6px rgba(0,0,0,0.25))' }}
+                >
+                  {brand}
+                </span>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

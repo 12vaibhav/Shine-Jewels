@@ -90,5 +90,36 @@
   transform: rotate(180deg);
 }
 
+.gold-text {
+  background: linear-gradient(to bottom, #cf9f5a 0%, #fceeb5 20%, #cf9f5a 40%, #fceeb5 60%, #cf9f5a 80%, #cf9f5a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.pearl-effect {
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #f3f4f6 50%, #e5e7eb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.pearl-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(0,0,0,0.05) 100%);
+  pointer-events: none;
+}
+
+.pearl-effect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/marble.png");
+  opacity: 0.1;
+  pointer-events: none;
+}
+
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";

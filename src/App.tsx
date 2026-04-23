@@ -17,7 +17,13 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // Force the browser to scroll to top immediately
     window.scrollTo(0, 0);
+    
+    // Disable browser default scroll restoration if supported
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
   }, [pathname]);
 
   return null;
@@ -27,8 +33,8 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen">
-        <header className="fixed top-0 w-full z-[200]">
+      <div className="min-h-screen overflow-x-hidden">
+        <header className="fixed top-0 w-full z-[200] overflow-x-hidden">
           <PromotionStrip />
           <Navbar />
         </header>

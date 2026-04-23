@@ -24,9 +24,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-8">
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-10">
-            <div className="space-y-4">
-              <a href="#" className="text-3xl md:text-4xl font-serif text-secondary italic tracking-tighter block">
-                Shine Jewels
+            <div className="space-y-6">
+              <a href="#" className="flex items-center gap-5 group">
+                <div className="w-[55px] h-[55px] md:w-[71px] md:h-[71px] rounded-full bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center p-[7px] md:p-[9px] shadow-2xl transition-transform duration-500 group-hover:scale-105 shrink-0">
+                  <img 
+                    src="/logo_trans.png" 
+                    alt="Shine Jewels Logo" 
+                    className="w-full h-full object-contain brightness-[1.1] contrast-[1.1]"
+                  />
+                </div>
+                <span className="text-3xl md:text-4xl font-serif text-secondary italic tracking-tighter block">
+                  Shine Jewels
+                </span>
               </a>
               <p className="text-xs text-stone-500 font-sans leading-relaxed max-w-xs tracking-wide uppercase">
                 Crafting heirloom memories since 1984. Every piece is a testament to timeless elegance and artisanal grace.

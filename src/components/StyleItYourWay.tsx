@@ -1,94 +1,200 @@
 import { motion } from "motion/react";
-import { Play } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef, useState } from "react";
 
 const stories = [
   {
-    title: "Horizon Band",
-    price: "$580",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAeQAx6bK5NKNme7O1dIhUPAS26hem3I9Ooc-3rmOtaaSPirXnvQm5jTV4zCOsgFKJyrYcDZ7I00bxM_gWVTqJ9Sq2aER2FEOnSRrVVVUhC_NgBxMH22EENm2WXrUTBr2tEUeQBUVt_UyWxiiGSD6ff2Jliv0yVjJWOnBrkD6cVQdUDHNB_u0J00UR10f9xX6M8JWP_A3xNmfQtojiBrVeqRzWsJ3FW2MJLhHiQqhlQM_3p03DtJYyzf4fFlEQS3GV-vtB0XCXFfIk",
-    thumb: "https://lh3.googleusercontent.com/aida-public/AB6AXuC8eFiN6STv4hY3QWdGPbQ3nX-8nbm0ZNJbKBk7jXwyS3nCPKNgr4YRxVOeeKiUqQv9DkUisf_lc7FYLUyM5muf-yQR88YkPXBnQzg2peC3SUW1wTyll86eZ43KOf9cVqtuop9r9c7kvh7cynlpQmBMYjyVNSj0buM51-XwbL6An99bedMqKas35qWsfhlKW1kw7ngDfJk4Fc3M7fXLOfvCanB6PYE2zIgshkCEIjsSXKUy9P_aYDtR3y1Id2zkDkU-S2ToGlLbQMk",
+    title: "HORIZON BAND",
+    price: "₹580",
+    image: "/Product Images/Style It Your Way/Floral Earrings with Green Jhumkas.webp",
+    video: "/Product Images/Style It Your Way/Vid-Floral Earrings with Green Jhumkas.mp4",
+    thumb: "/Product Images/Style It Your Way/Floral Earrings with Green Jhumkas.webp",
   },
   {
-    title: "Pearl Drops",
-    price: "$340",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCUzckAvW4l-Gv4Qod2bAla0lQew069IBz1Ym8ZT5oUY3t7SyIvofeY8x0v828OWA5_6cbh2I9foL90IY_jyZLFG9fCO6oNcUK2rVINyDTPZ1yC4WjY3eIQIl7eD5aGEUokX_3dYK8T8psMI3nKOJeSsYWJfkc9teJZQd8Yoyl5Pwq8QY6nskb4TAWK3iOW5fF9JOoJjPIi0Rk9kC7jJKfddWSsDM1gpsSZnM8t-uY605jqrVEBUmzw5-NQRDFcsJh6sWWSXJfkkPs",
-    thumb: "https://lh3.googleusercontent.com/aida-public/AB6AXuDjMRYmEndz9iPm9J7lkgdDJINRESkkSPCKUDLlQReSPI1m5luOZMnf08FNMlh-O6Nq9wiLIxob1E3sJSFDE72BlVoSk7jjQvLbA-7hfEpgj0lJXUxhL51wcOe_nwNYVf9BlQ-t1ynQSACToS7dyCsYtRxDGuuN2jo8bR3KPsVM3nqWwvetlMU8fAke5qreCep8yJiOqrDCYm_Tf1JtJ2iINoyQ2vkXjS4LuSTVZk0WFlpCB7y0VDwrF0FHVA71n0Cs_7cIci3tqYw",
+    title: "PEARL DROPS",
+    price: "₹340",
+    image: "/Product Images/Style It Your Way/Jineshvi Maroon Choker Set.webp",
+    video: "/Product Images/Style It Your Way/Vid-Jineshvi Maroon Choker Set.mp4",
+    thumb: "/Product Images/Style It Your Way/Jineshvi Maroon Choker Set.webp",
   },
   {
-    title: "Solstice Pendant",
-    price: "$1,200",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDAJuSUxNMymt-5_qjH_B7o93xgljroNkjweTi6SWPiZyheE-wZ5bFChIdthto1TwGILeZHlRlpa9UoA4oxqoCIGsOkcxvtNf4xi4r2A4xcCNCqblWvLIze8ulQ2rg-G8Nx9hHcQlKwpUx-scrT9cIU9jbHe4008aZeFMTb-6AypqTWsBqPurzYg_CPALqdhDTzCPlCkpIo36phhW7GggN7wCtRUdRTVHJw47YevOOYQGt9UH7v7ltEg9uhXa3rJE300ZfNx9Qeah4",
-    thumb: "https://lh3.googleusercontent.com/aida-public/AB6AXuAdm59U0ftKZpzxEULPCh0ZmuAjcVAKvYLtY9U0uWWGBzr7at776L8AOhMaCIrY8o7Ic1grTQbJ9miEaj-4m0j_Mhdr5U1oGVs8e79LJprrSkTcnV9v-DvuSOBsN8GJMV0g3-02Y_yPFWAkSDTrb1MPlxm_mJv3tC-H-rf_VuhAvXkbvK5MzVRSNugYKSC-jefAvZQfbpaIePkQvLeDxbhBjWu5kA4n8D--uJdiqtGrbVah39fkW46YK-_C-_FVdurVdoPB1-B2mPU",
+    title: "SOLSTICE PENDANT",
+    price: "₹1,200",
+    image: "/Product Images/Style It Your Way/Multicolor Pearl Earrings.webp",
+    video: "/Product Images/Style It Your Way/Vid-Multicolor Pearl Earrings.mp4",
+    thumb: "/Product Images/Style It Your Way/Multicolor Pearl Earrings.webp",
   },
   {
-    title: "Shine Bridal Set",
-    price: "$3,500",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAx_zqXZnFzal3UkcIpH-5uHl4DXekYa1FuOw5XwajCb8sKKvLIkTCgArOSWj3CQoTijWm8vVT-p_Fw30hXZMC0XauB7lzscPOOn3MiJAXckdS9ghI4ZiFZLwbcx7glaVkwedMCHp733bHkQCSCY3OixB1HdFiGjQ8fI3w6zFddzGc5Q4CNlSjNCaHzPeJRI6g2irqPwXXn2A2ZxuZb5xigqOmnqDUa_pJkFGtvp74EIT5yfpeeXZQFqmfHjkVPBcNPlJPjQWxAXoM",
-    thumb: "https://lh3.googleusercontent.com/aida-public/AB6AXuC7NwdScD8TmVX-QSKKbl5vaicpqVxBuRuT0JicMVvKo6g417-3-X0c6bfJcyZZPOCfwLIuuKjp_T5wndd4j6FNa9dGAPW-2K8TuuTXnCO_VGNzXqM6OFR4PhtgkItwhS1Vb2GdYb5TOrq1yVzzTwTymEtJDwKoLA3TPDGgqq8iORAXuvi4ovfg8gaWs4rExLUBBiqTPxPHdhDwIgtlnhDtd_dlfxN8nZ9gEUVVT5ngw-B7D07rGCKQGLV-gxZNPr2eqtI6krMDqBc",
+    title: "SHINE BRIDAL SET",
+    price: "₹3,500",
+    image: "/Product Images/Style It Your Way/South Indian Green Necklace Set.webp",
+    video: "/Product Images/Style It Your Way/Vid-South Indian Green Necklace Set.mp4",
+    thumb: "/Product Images/Style It Your Way/South Indian Green Necklace Set.webp",
+  },
+  {
+    title: "VERSATILE HAATHPANJA",
+    price: "₹1,850",
+    image: "/Product Images/Style It Your Way/Versatile Green HaathPanja.webp",
+    video: "/Product Images/Style It Your Way/Vid-Versatile Green HaathPanja.mp4",
+    thumb: "/Product Images/Style It Your Way/Versatile Green HaathPanja.webp",
   },
 ];
 
-export default function StyleItYourWay() {
+function StoryCard({ story, index }: { story: any; index: number }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true); // autoPlay is true by default
+
+  const togglePlay = (e: React.MouseEvent) => {
+    // Prevent toggling if they click the "Shop Look" link
+    if ((e.target as HTMLElement).closest('a')) return;
+
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   return (
-    <section className="py-8 md:py-16 bg-[#ffe4ef] px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="text-3xl md:text-5xl font-serif italic text-primary mb-6 md:mb-8 text-center"
-        >
-          Style It Your Way
-        </motion.h2>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ delay: index * 0.1, duration: 0.8 }}
+      onClick={togglePlay}
+      className="relative group min-w-[calc(50%-12px)] w-[calc(50%-12px)] md:min-w-[0] md:w-[calc(25%-18px)] aspect-[9/16] rounded-[24px] overflow-hidden bg-black cursor-pointer snap-start shrink-0 border-[4px] border-[#2a2421] shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+    >
+      {/* Inner Gold Rim Simulation */}
+      <div className="absolute inset-0 rounded-[20px] border border-[#c8a96e]/30 pointer-events-none z-20"></div>
 
-        <div className="flex gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 overflow-x-auto md:overflow-x-visible scrollbar-hide snap-x -mx-6 px-6 md:mx-0 md:px-0 scroll-px-6">
-          {stories.map((story, index) => (
-            <motion.div
-              key={story.title}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative group min-w-[280px] md:min-w-0 aspect-[9/16] rounded-2xl overflow-hidden ambient-glow-rose bg-surface-container shadow-xl cursor-pointer snap-start"
-            >
-              <img
-                src={story.image}
-                alt={story.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-              
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform duration-500">
-                  <Play className="w-8 h-8 text-white fill-white" />
-                </div>
-              </div>
+      {/* Video / Image */}
+      <video
+        ref={videoRef}
+        src={story.video}
+        poster={story.image}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+      />
+      
+      {/* Bottom Dark Gradient */}
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none z-0"></div>
 
-              <div className="absolute bottom-4 left-4 right-4 bg-white/20 backdrop-blur-xl p-4 rounded-xl border border-white/20 group-hover:bg-white/30 transition-all duration-300">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-lg overflow-hidden bg-white/50 flex-shrink-0">
-                    <img
-                      src={story.thumb}
-                      alt="thumbnail"
-                      className="w-full h-full object-cover"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[10px] text-white uppercase tracking-widest font-bold truncate">
-                      {story.title}
-                    </p>
-                    <p className="text-sm text-white font-serif italic">{story.price}</p>
-                    <a href="#" className="inline-block mt-2 text-[9px] text-secondary uppercase font-bold tracking-widest border-b border-secondary">
-                      Shop Look
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+      {/* Central Play Button (Fades out when playing) */}
+      <div 
+        className={`absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-300 ${
+          isPlaying ? 'opacity-0 scale-110' : 'opacity-100 scale-100'
+        }`}
+      >
+        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center shadow-lg transition-transform duration-500">
+          <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[14px] border-l-white border-b-[8px] border-b-transparent ml-1"></div>
+        </div>
+      </div>
+
+      {/* Bottom Overlay Info Card */}
+      <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#1a1512]/80 backdrop-blur-md p-2.5 md:p-3.5 rounded-xl border border-white/10 group-hover:bg-[#1a1512]/90 transition-all duration-300 z-20">
+        <div className="flex items-center gap-3 md:gap-4">
+          {/* Thumbnail - Hidden on mobile */}
+          <div className="hidden md:block w-[45px] h-[45px] rounded-lg overflow-hidden bg-black shrink-0 shadow-inner">
+            <img
+              src={story.thumb}
+              alt="thumbnail"
+              className="w-full h-full object-cover opacity-90"
+            />
+          </div>
+          
+          {/* Text Details */}
+          <div className="flex-1 min-w-0 flex flex-col justify-center text-center md:text-left">
+            <p className="text-[9px] md:text-[10px] text-white/95 uppercase tracking-widest font-semibold truncate mb-0.5">
+              {story.title}
+            </p>
+            {/* Price - Hidden on mobile */}
+            <p className="hidden md:flex text-[16px] text-white/80 font-serif items-center">
+              {story.price}
+              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 ml-2 fill-current text-white/60">
+                <path d="M12 2L22 12L12 22L2 12L12 2Z"/>
+              </svg>
+            </p>
+            <div>
+              <a href="#" className="inline-block mt-1.5 text-[8px] text-[#c8a96e] uppercase font-bold tracking-[0.2em] border-b border-[#c8a96e]/40 pb-[2px] transition-colors group-hover:border-[#c8a96e]">
+                Shop Look
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function StyleItYourWay() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollTo = direction === "left" ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <section className="pt-[13px] pb-0 md:pt-[61px] md:pb-[26px] px-4 md:px-8 overflow-hidden relative">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/Section Background/Style it your way.webp" 
+          alt="Style It Your Way Background" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      <div className="w-full max-w-[1400px] mx-auto relative z-10">
+        {/* Header Section */}
+        <div className="mb-12 md:mb-16 flex justify-center w-full">
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-serif italic text-[#4a1525] drop-shadow-md text-center font-semibold"
+          >
+            Style It Your Way
+          </motion.h2>
+        </div>
+
+        {/* Carousel Section */}
+        <div className="relative group/scroll md:px-0">
+          {/* Chevron Buttons */}
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-8 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/30 transition-all shadow-xl opacity-0 group-hover/scroll:opacity-100 hidden md:flex"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-8 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/30 transition-all shadow-xl opacity-0 group-hover/scroll:opacity-100 hidden md:flex"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div
+            ref={scrollRef}
+            className="flex gap-4 md:gap-6 overflow-x-auto overflow-y-hidden scrollbar-hide snap-x scroll-px-4 scroll-smooth pb-12 pt-4 -mx-4 px-4 md:mx-0 md:px-0"
+          >
+            {stories.map((story, index) => (
+              <StoryCard key={story.title} story={story} index={index} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+

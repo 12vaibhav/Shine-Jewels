@@ -3,100 +3,151 @@ import { motion } from "motion/react";
 const categories = [
   {
     name: "Rings",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC8eFiN6STv4hY3QWdGPbQ3nX-8nbm0ZNJbKBk7jXwyS3nCPKNgr4YRxVOeeKiUqQv9DkUisf_lc7FYLUyM5muf-yQR88YkPXBnQzg2peC3SUW1wTyll86eZ43KOf9cVqtuop9r9c7kvh7cynlpQmBMYjyVNSj0buM51-XwbL6An99bedMqKas35qWsfhlKW1kw7ngDfJk4Fc3M7fXLOfvCanB6PYE2zIgshkCEIjsSXKUy9P_aYDtR3y1Id2zkDkU-S2ToGlLbQMk",
+    image: "/Product Images/Category/Rings.webp",
   },
   {
     name: "Earrings",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDjMRYmEndz9iPm9J7lkgdDJINRESkkSPCKUDLlQReSPI1m5luOZMnf08FNMlh-O6Nq9wiLIxob1E3sJSFDE72BlVoSk7jjQvLbA-7hfEpgj0lJXUxhL51wcOe_nwNYVf9BlQ-t1ynQSACToS7dyCsYtRxDGuuN2jo8bR3KPsVM3nqWwvetlMU8fAke5qreCep8yJiOqrDCYm_Tf1JtJ2iINoyQ2vkXjS4LuSTVZk0WFlpCB7y0VDwrF0FHVA71n0Cs_7cIci3tqYw",
+    image: "/Product Images/Category/Earrings.png",
   },
   {
     name: "Necklaces",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAdm59U0ftKZpzxEULPCh0ZmuAjcVAKvYLtY9U0uWWGBzr7at776L8AOhMaCIrY8o7Ic1grTQbJ9miEaj-4m0j_Mhdr5U1oGVs8e79LJprrSkTcnV9v-DvuSOBsN8GJMV0g3-02Y_yPFWAkSDTrb1MPlxm_mJv3tC-H-rf_VuhAvXkbvK5MzVRSNugYKSC-jefAvZQfbpaIePkQvLeDxbhBjWu5kA4n8D--uJdiqtGrbVah39fkW46YK-_C-_FVdurVdoPB1-B2mPU",
+    image: "/Product Images/Category/Necklaces.jpeg",
   },
   {
     name: "Bangles",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA7ulKeywPAMLVVQp9tRYgo_rhedzSc3jROWw4U0Ko-_ohR5MSYJML00XepzfjFxPVukI0cYGXE2A4MSrCr9pwFSnPxWDfhlUB8Frk_qiYjtlIRL0WRr2bFyF-DbheRe8sBm-U6l6ztydaFBhlpx0Vi7-onka_9BnDmaMeB7K6Nrkas-Y168nG65WPSKw4UZzQpb0ezHimVxzzOXwGI1lu6ludD0OARc0eOFX7b99ZbAlonumrQGta_i0mgax5Rv6sXDlF4yjkvhTs",
+    image: "/Product Images/Category/Bangles.webp",
   },
   {
     name: "Bridal Sets",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC7NwdScD8TmVX-QSKKbl5vaicpqVxBuRuT0JicMVvKo6g417-3-X0c6bfJcyZZPOCfwLIuuKjp_T5wndd4j6FNa9dGAPW-2K8TuuTXnCO_VGNzXqM6OFR4PhtgkItwhS1Vb2GdYb5TOrq1yVzzTwTymEtJDwKoLA3TPDGgqq8iORAXuvi4ovfg8gaWs4rExLUBBiqTPxPHdhDwIgtlnhDtd_dlfxN8nZ9gEUVVT5ngw-B7D07rGCKQGLV-gxZNPr2eqtI6krMDqBc",
+    image: "/Product Images/Category/Bridal Sets.jpg",
   },
   {
     name: "Bespoke",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDiY242QnN9XzQPwm9KfKKmnms73mNCIdfnPMH4F315Z-lnvQufZQgITNu_UzAXjk45q7Vt807Vcw6orWmFF3RRUBuLGNvh5raft4nNSLc-jkOe-fNTWd71AZeWjsfS2zW9BRsnK_41JSmNgmAvp2ugjfyJ_ZACN2qlHSGCX7HC64TRaCJBTzS9x5p8yJ42cJgF5G8XkGagJQJzmP1KXjM1ZwfJFimOre8bcL3uI4rnfVHWd5Pfk2jFfhzrPlQfcjX2dbYJLhAhwIU",
+    image: "/Product Images/Category/Bespoke.jpg",
   },
 ];
 
 export default function CategorySection() {
   return (
-    <section className="py-6 md:py-12 px-6 max-w-7xl mx-auto relative overflow-hidden">
-      {/* Decorative Background Element */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-[0.03] select-none">
-        <span className="text-[30rem] font-serif italic text-primary absolute top-0 left-0 -translate-x-1/2 -translate-y-1/4">E</span>
+    <section className="relative pt-[51px] pb-4 overflow-hidden bg-[#faf8f5]">
+      {/* Background Image & Sparkles */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/Section Background/Category.webp" 
+          alt="Category Background" 
+          className="w-full h-full object-cover opacity-90"
+        />
+        {/* Subtle radial glow to enhance the center */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.4)_0%,transparent_100%)]"></div>
+        
+        {/* Floating Sparkles (CSS simulation) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-[20%] left-[10%] w-2 h-2 bg-white rounded-full shadow-[0_0_10px_5px_rgba(255,255,255,0.5)] animate-pulse"></div>
+          <div className="absolute top-[60%] left-[80%] w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_8px_4px_rgba(255,255,255,0.4)] animate-ping delay-300"></div>
+          <div className="absolute top-[80%] left-[30%] w-2.5 h-2.5 bg-[#c8a96e] rounded-full shadow-[0_0_12px_6px_rgba(200,169,110,0.4)] animate-pulse delay-700"></div>
+          <div className="absolute top-[30%] left-[70%] w-1 h-1 bg-white rounded-full shadow-[0_0_5px_2px_rgba(255,255,255,0.5)] animate-ping delay-1000"></div>
+        </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-4 md:mb-8 relative z-10"
-      >
-        <span className="font-sans uppercase text-[8px] md:text-[10px] tracking-[0.4em] text-secondary mb-2 md:mb-4 block">Curated Collections</span>
-        <h2 className="text-3xl md:text-5xl font-serif text-primary italic">Shop by Category</h2>
-        <div className="mt-3 md:mt-6 flex justify-center items-center gap-4">
-          <div className="h-[1px] w-8 md:w-12 bg-secondary/30"></div>
-          <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full border border-secondary/50"></div>
-          <div className="h-[1px] w-8 md:w-12 bg-secondary/30"></div>
-        </div>
-      </motion.div>
+      <div className="w-full max-w-[1400px] mx-auto px-4 relative z-10">
+        
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-2 md:mb-14 flex flex-col items-center"
+        >
+          <span className="font-sans uppercase text-[10px] md:text-xs tracking-[0.4em] text-secondary font-semibold mb-4">
+            Curated Collections
+          </span>
+          
+          <div className="flex items-center justify-center gap-4 md:gap-8 w-full">
+            {/* Left Flourish */}
+            <svg width="80" height="20" viewBox="0 0 100 20" className="hidden md:block text-secondary fill-current opacity-80" style={{ transform: 'scaleX(-1)' }}>
+              <path d="M0,10 C30,-5 50,25 70,10 C80,2 90,5 100,10 C90,15 80,18 70,10 C50,-5 30,25 0,10 Z"/>
+              <circle cx="10" cy="10" r="2" />
+              <circle cx="25" cy="10" r="1.5" />
+            </svg>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-4 md:gap-6 relative z-10">
-        {categories.map((cat, index) => (
-          <motion.div
-            key={cat.name}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1, duration: 0.8 }}
-            className="group cursor-pointer flex flex-col items-center"
-          >
-            <div className="relative w-full max-w-[160px] aspect-square mb-2 md:mb-8">
-              {/* Outer Decorative Ring */}
-              <div className="absolute inset-[-6px] rounded-full border border-secondary/10 group-hover:border-secondary/40 transition-colors duration-700"></div>
-              
-              {/* Main Image Container */}
-              <div className="w-full h-full rounded-full bg-surface-container-low p-2 border border-secondary/5 overflow-hidden relative shadow-sm group-hover:shadow-xl group-hover:border-secondary/20 transition-all duration-700">
-                <motion.img
-                  src={cat.image}
-                  alt={cat.name}
-                  whileHover={{ scale: 1.15 }}
-                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                  className="w-full h-full object-cover rounded-full mix-blend-multiply opacity-90 group-hover:opacity-100"
-                  referrerPolicy="no-referrer"
-                />
+            <h2 className="text-4xl md:text-6xl font-serif italic text-primary drop-shadow-sm font-semibold tracking-tight pb-[15px] md:pb-0">
+              Shop by Category
+            </h2>
+
+            {/* Right Flourish */}
+            <svg width="80" height="20" viewBox="0 0 100 20" className="hidden md:block text-secondary fill-current opacity-80">
+              <path d="M0,10 C30,-5 50,25 70,10 C80,2 90,5 100,10 C90,15 80,18 70,10 C50,-5 30,25 0,10 Z"/>
+              <circle cx="10" cy="10" r="2" />
+              <circle cx="25" cy="10" r="1.5" />
+            </svg>
+          </div>
+        </motion.div>
+
+        {/* Categories Row - Grid on mobile, Flex on desktop */}
+        <div className="grid grid-cols-2 md:flex md:flex-nowrap md:overflow-x-auto pb-12 pt-4 md:-mx-4 md:px-4 justify-items-center md:justify-start xl:justify-center items-start gap-y-8 gap-x-[26px] md:gap-0 md:scrollbar-hide md:snap-x">
+          {categories.map((cat, index) => (
+            <motion.div
+              key={cat.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.1, duration: 0.8 }}
+              className="group cursor-pointer flex flex-col items-center shrink-0 md:w-[210px] md:snap-center relative"
+            >
+              {/* The Linking Chain Background (Only visible between items on desktop) */}
+              {index !== 0 && (
+                <div className="hidden md:block absolute top-[45%] left-[-105px] w-[105px] h-[2px] border-t-2 border-dashed border-secondary/40 -z-10 pointer-events-none"></div>
+              )}
+ 
+              {/* The Gold Ring Container */}
+              <div className="relative w-[115px] h-[115px] md:w-[170px] md:h-[170px] mb-3 md:mb-6">
                 
-                {/* Overlay Glow */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                {/* Outer Chain Detail (SVG) */}
+                <div className="absolute inset-[-8px] md:inset-[-12px] z-0 pointer-events-none">
+                  <svg className="w-full h-full animate-[spin_60s_linear_infinite]" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="96" fill="none" stroke="#c8a96e" strokeWidth="2.5" strokeDasharray="3,4" opacity="0.8" />
+                    <circle cx="100" cy="100" r="90" fill="none" stroke="#c8a96e" strokeWidth="1" opacity="0.4" />
+                  </svg>
+                </div>
+ 
+                {/* 3D Gold Frame */}
+                <div className="absolute inset-0 rounded-full z-20 pointer-events-none shadow-[inset_0_0_0_4px_#fceeb5,inset_0_0_0_8px_#c8a96e,inset_0_0_20px_10px_rgba(0,0,0,0.6),0_0_0_2px_#c8a96e,0_15px_30px_rgba(0,0,0,0.4)] bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.4)_0%,transparent_60%)] group-hover:shadow-[inset_0_0_0_4px_#fceeb5,inset_0_0_0_8px_#c8a96e,inset_0_0_20px_10px_rgba(0,0,0,0.6),0_0_0_2px_#c8a96e,0_20px_40px_rgba(200,169,110,0.4)] transition-shadow duration-500"></div>
+ 
+                {/* Image Mask */}
+                <div className="w-full h-full rounded-full overflow-hidden border-[5px] md:border-[6px] border-transparent relative z-10 bg-black">
+                  <motion.img
+                    src={cat.image}
+                    alt={cat.name}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="w-full h-full object-cover rounded-full"
+                    referrerPolicy="no-referrer"
+                  />
+                  {/* Subtle Inner Glow on Image */}
+                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_30px_rgba(0,0,0,0.5)] pointer-events-none"></div>
+                </div>
+ 
+                {/* Top Badge (Index Number) */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center">
+                  {/* Decorative crown point */}
+                  <div className="w-2.5 h-2.5 md:w-3 h-3 bg-secondary rotate-45 -mb-1.5 md:-mb-2 z-0 rounded-sm"></div>
+                  
+                  <div className="w-7 h-7 md:w-10 md:h-10 rounded-full bg-[#fdfbf7] border-2 border-secondary shadow-[0_5px_15px_rgba(0,0,0,0.2)] flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-500">
+                    <div className="absolute inset-0.5 rounded-full border border-secondary/30"></div>
+                    <span className="text-[9px] md:text-xs font-serif font-bold text-primary">
+                      0{index + 1}
+                    </span>
+                  </div>
+                </div>
               </div>
-
-              {/* Index Number */}
-              <span className="absolute -top-1 -right-1 w-7 h-7 bg-white rounded-full flex items-center justify-center text-[8px] font-sans font-bold text-secondary shadow-sm border border-secondary/10">
-                0{index + 1}
-              </span>
-            </div>
-
-            <div className="text-center">
-              <h3 className="font-serif text-lg text-on-surface group-hover:text-primary transition-colors duration-300">
+ 
+              {/* Category Title */}
+              <h3 className="font-serif text-lg md:text-2xl text-primary mt-2 transition-colors duration-300">
                 {cat.name}
               </h3>
-              <motion.div
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                className="h-[1px] bg-secondary/40 mt-2 mx-auto"
-              ></motion.div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
