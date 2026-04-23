@@ -38,10 +38,8 @@ export default function PromoSection() {
         <img 
           src="/Section Background/Banner Section.webp" 
           alt="Promo Background" 
-          className="w-full h-full object-cover opacity-85 saturate-[0.8] contrast-[1.05] brightness-[0.95]"
+          className="w-full h-full object-cover"
         />
-        {/* Unified Luxury Overlay */}
-        <div className="absolute inset-0 bg-secondary/5 mix-blend-overlay"></div>
       </div>
 
       <div className="w-full max-w-[1400px] mx-auto relative z-10 flex flex-col xl:flex-row items-center justify-between gap-12 xl:gap-8">
